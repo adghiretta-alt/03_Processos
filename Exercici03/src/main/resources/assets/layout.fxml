@@ -1,0 +1,76 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.project.Controller">
+
+    <children>
+        <Label text="ChatGPT - Exercici 03"
+               layoutX="16.0" layoutY="12.0"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;"
+               AnchorPane.topAnchor="12.0"
+               AnchorPane.leftAnchor="16.0"/>
+
+        <ScrollPane fx:id="scrollPane"
+                    fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    layoutX="16.0" layoutY="48.0"
+                    AnchorPane.topAnchor="48.0"
+                    AnchorPane.bottomAnchor="76.0"
+                    AnchorPane.leftAnchor="16.0"
+                    AnchorPane.rightAnchor="16.0">
+            <content>
+                <VBox fx:id="chatMessages"
+                      spacing="12.0"
+                      fillWidth="true"
+                      style="-fx-padding: 12px;">
+                </VBox>
+            </content>
+        </ScrollPane>
+
+        <HBox spacing="8.0"
+              alignment="CENTER_LEFT"
+              AnchorPane.bottomAnchor="16.0"
+              AnchorPane.leftAnchor="16.0"
+              AnchorPane.rightAnchor="16.0">
+
+            <Button fx:id="buttonPicture"
+                    text="Adjuntar"
+                    onAction="#callPicture"/>
+
+            <ImageView fx:id="imagePreview"
+                       fitWidth="40.0"
+                       fitHeight="40.0"
+                       preserveRatio="true"
+                       visible="false"
+                       managed="false"/>
+
+            <TextField fx:id="inputMessage"
+                       promptText="Escribe un mensaje..."
+                       onAction="#callSend"
+                       HBox.hgrow="ALWAYS"/>
+
+            <Button fx:id="buttonSend"
+                    text="Enviar"
+                    onAction="#callSend"/>
+
+            <Button fx:id="buttonBreak"
+                    text="Detener"
+                    onAction="#callBreak"
+                    disable="true"/>
+        </HBox>
+    </children>
+</AnchorPane>
+
+</AnchorPane>
